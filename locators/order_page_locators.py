@@ -15,11 +15,11 @@ class OrderPageLocators:
     option_rental_period_day = (By.XPATH, "//div[text()='сутки']") # кнопка "сутки"
     checkbox_color_black = (By.ID, "black") # первый чекбокс в поле "Цвет самоката" (чёрный жемчуг)
     input_comment = (By.CSS_SELECTOR, "input[placeholder='Комментарий для курьера']") # поле "Комментарий для курьера" в форме заказа
-    button_place_order = (By.XPATH, "//*[@id='root']/div/div[2]/div[3]/button[2]") # кнопка "Заказать" в форме заказа
+    button_place_order = (By.XPATH, "//button[@class='Button_Button__ra12g Button_Middle__1CSJM' and contains(text(), 'Заказать')]") # кнопка "Заказать" в форме заказа
     modal_header_confirm_order = (By.XPATH, "//div[contains(text(), 'Хотите оформить заказ?')]") # текст "Хотите оформить заказ?" в форме заказа
     button_yes = (By.XPATH, "//button[@class='Button_Button__ra12g Button_Middle__1CSJM' and contains(text(), 'Да')]") # кнопка "Да" в форме заказа
     modal_header_order_confirmed = (By.XPATH, "//div[contains(text(), 'Заказ оформлен')]") # текст "Заказ оформлен" в форме заказа
-    button_order_bottom = (By.XPATH, "//*[@id='root']/div/div/div[4]/div[2]/div[5]/button") # кнопка "Заказать" внизу главной страницы
+    button_order_bottom = (By.XPATH, "//button[@class='Button_Button__ra12g Button_UltraBig__UU3Lp' and contains(text(), 'Заказать')]") # кнопка "Заказать" внизу главной страницы
     date_picker_19th = (By.CSS_SELECTOR, ".react-datepicker__day--019") # кнопка с 19 числом месяца
     option_rental_period_two_days = (By.XPATH, "//div[@class='Dropdown-option' and text()='двое суток']") # кнопка "двое суток"
     checkbox_color_grey = (By.ID, "grey") # второй чекбокс в поле "Цвет самоката" (серая безысходность)
