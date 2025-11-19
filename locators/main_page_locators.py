@@ -1,4 +1,4 @@
-from selenium.webdriver.common.by import By
+from selenium.webdriver.common.by import By 
 
 class MainPageLocators:
     button_how_much = (By.ID, "accordion__heading-0") # кнопка вопроса "Сколько это стоит? И как оплатить?"

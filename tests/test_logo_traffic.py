@@ -37,4 +37,4 @@ def test_navigate_by_logo_yandex(navigate_to_main_page):
     # Добавляем ожидание полной загрузки страницы Дзена
     order_page.wait_for_url_contains("dzen.ru")
 
-    assert "dzen.ru" in navigate_to_main_page.current_url, "Переход на страницу Дзена не произошёл"
+    assert "dzen.ru" in navigate_to_main_page.current_url, "Переход на страницу Дзена не произошёл" 

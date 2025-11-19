@@ -1,4 +1,4 @@
-from selenium.webdriver.common.by import By
+from selenium.webdriver.common.by import By 
 
 class OrderPageLocators:
     button_order_top = (By.XPATH, "//button[@class='Button_Button__ra12g' and contains(text(), 'Заказать')]") # кнопка "Заказать" вверху главной страницы

@@ -3,11 +3,10 @@ from pages.order_page import OrderPage
 from locators.order_page_locators import OrderPageLocators
 from selenium.webdriver.common.by import By
 import allure
+from data import data
 
-@pytest.mark.parametrize('name, surname, address, phone, metro_station_text, comment, order_button', [
-    ("Иван", "Иванов", "г. Санкт-Петербург", "89821234567", "Бульвар Рокоссовского", "мой первый комментарий", OrderPageLocators.button_order_top),
-    ("Пётр", "Петров", "г. Москва", "89822345678", "Бульвар Рокоссовского", "мой второй комментарий", OrderPageLocators.button_order_bottom)
-])
+@pytest.mark.parametrize('name, surname, address, phone, metro_station_text, comment, order_button', data)
+
 @allure.title("Проверка сообщения об успешном оформлении заказа")
 def test_order_flow(navigate_to_main_page, name, surname, address, phone, metro_station_text, comment, order_button):
     order_page = OrderPage(navigate_to_main_page)
