@@ -17,5 +17,8 @@ def test_questions(navigate_to_main_page, question_button, expected_text, answer
     # Добавляем ожидание появления текста ответа
     main_page.wait_for_text_to_be_present_in_element(answer_locator, expected_text)
 
+    # Проверяем видимость элемента ответа
+    main_page.wait_for_visibility_of_element_located(answer_locator)
+
     answer = main_page.get_answer_text(answer_locator)
     assert answer == expected_text

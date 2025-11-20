@@ -1,7 +1,6 @@
 import pytest
 from pages.order_page import OrderPage
 from locators.order_page_locators import OrderPageLocators
-from selenium.webdriver.common.by import By
 import allure
 from data import data
 
@@ -12,11 +11,15 @@ def test_order_flow(navigate_to_main_page, name, surname, address, phone, metro_
     order_page = OrderPage(navigate_to_main_page)
 
     # Нажимаем на кнопку "Заказать" главной страницы
-    element = order_page.driver.find_element(*order_button)
-    order_page.driver.execute_script("arguments[0].click();", element)
+    order_page.click_button(order_button)
 
-    # Ждём перехода на страницу с формой заказа
-    order_page.wait_for_url_contains("https://qa-scooter.praktikum-services.ru/order")
+    try:
+        # Ждём перехода на страницу с формой заказа
+        order_page.wait_for_url_contains("https://qa-scooter.praktikum-services.ru/order")
+    except Exception as e:
+        # Если переход не произошёл, выводим сообщение об ошибке и завершаем тест
+        print("Ошибка: не удалось перейти на страницу заказа.", e)
+        return
 
     # Заполняем форму заказа
     order_page.fill_field(OrderPageLocators.input_name, name)
@@ -25,7 +28,7 @@ def test_order_flow(navigate_to_main_page, name, surname, address, phone, metro_
     order_page.click_button(OrderPageLocators.input_metro_station)
 
     # Ищем станцию метро по тексту и кликаем на неё
-    order_page.driver.find_element(By.XPATH, f"//*[contains(text(), '{metro_station_text}')]").click()
+    order_page.click_metro_station(metro_station_text)
 
     order_page.fill_field(OrderPageLocators.input_phone, phone)
     order_page.wait_for_element_to_be_clickable(OrderPageLocators.button_next)

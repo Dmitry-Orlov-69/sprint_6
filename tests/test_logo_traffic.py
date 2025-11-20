@@ -16,7 +16,7 @@ def test_navigate_by_logo_scooter(navigate_to_main_page):
     # Нажимаем на логотип "Самоката"
     order_page.click_button(BaseLocators.logo_scooter)
 
-    assert "qa-scooter.praktikum-services.ru" in navigate_to_main_page.current_url, "Переход на главную страницу не произошёл"
+    assert "https://qa-scooter.praktikum-services.ru/" in navigate_to_main_page.current_url, "Переход на главную страницу не произошёл"
 
 @allure.title("Переход по лого 'Яндекс'")
 def test_navigate_by_logo_yandex(navigate_to_main_page):

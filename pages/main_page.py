@@ -29,3 +29,7 @@ class MainPage(BasePage):
     def click_button_with_js(self, locator):
         element = self.driver.find_element(*locator)
         self.driver.execute_script("arguments[0].click();", element)
+
+    @allure.step("Ожидать видимости элемента '{locator}'")
+    def wait_for_visibility_of_element_located(self, locator, timeout=10):
+        WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
