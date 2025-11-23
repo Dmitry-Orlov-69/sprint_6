@@ -11,7 +11,7 @@ class OrderPage(BasePage):
     @allure.step("Нажать на кнопку '{button_locator}'")
     def click_button(self, button_locator):
         button = self.driver.find_element(*button_locator)
-        self.driver.execute_script("arguments[0].click();", button)
+        button.click()
 
     @allure.step("Заполнить поле '{field_locator}' текстом '{text}'")
     def fill_field(self, field_locator, text):
@@ -36,3 +36,8 @@ class OrderPage(BasePage):
         locator = (By.XPATH, f"//*[contains(text(), '{metro_station_text}')]")
         self.wait_for_visibility_of_element_located(locator)
         self.click_button(locator)
+
+    @allure.step("Нажать на кнопку с использованием JavaScript '{button_locator}'")
+    def click_orderbutton_with_js(self, button_locator):
+        button = self.driver.find_element(*button_locator)
+        self.driver.execute_script("arguments[0].click();", button)

@@ -11,7 +11,7 @@ def test_order_flow(navigate_to_main_page, name, surname, address, phone, metro_
     order_page = OrderPage(navigate_to_main_page)
 
     # Нажимаем на кнопку "Заказать" главной страницы
-    order_page.click_button(order_button)
+    order_page.click_orderbutton_with_js(order_button)
 
     try:
         # Ждём перехода на страницу с формой заказа
